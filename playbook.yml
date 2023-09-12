@@ -4,5 +4,12 @@
   # collections:
   #   - kubernetes.core
   #   - community.general
+  pre_tasks:
+  - name: Install needed python package
+    ansible.builtin.pip:
+      name: 
+      - kubernetes
+      - jmespath
+
   roles:
     - aap_prometheus_grafana
