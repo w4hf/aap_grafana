@@ -11,5 +11,15 @@
       - kubernetes
       - jmespath
 
+  - name: Create the aap namespace
+    kubernetes.core.k8s:
+      state: present
+      template: 01-aap-project.yml.j2
+
+  - name: Deploy AAP
+    kubernetes.core.k8s:
+      state: present
+      template: 02-aap-sub.yml.j2
+
   roles:
     - aap_prometheus_grafana
